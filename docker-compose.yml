@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: gym-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: gymnsb
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - ./DATABASE FILE/gymnsb.sql:/docker-entrypoint-initdb.d/gymnsb.sql
+      - db_data:/var/lib/mysql
+
+  web:
+    build: .
+    container_name: gym-web
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASS: password
+      DB_NAME: gymnsb
+    depends_on:
+      - db
+
+volumes:
+  db_data:
