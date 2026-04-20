@@ -8,8 +8,37 @@ $(document).ready(function(){
 		disableUIStyles : true,
 	
 		formOptions :{
-			success: function(data){$("#status").fadeTo(500,1,function(){ $(this).html("<span>Form was submitted!</span>").fadeTo(5000, 0); })},
-			beforeSubmit: function(data){$("#submitted").html("<span>Form was submitted with ajax. Data sent to the server: " + $.param(data) + "</span>");},
+			success: function(data){
+				if(data.status == 'success'){
+					Swal.fire({
+						icon: 'success',
+						title: 'Success!',
+						text: data.message,
+						confirmButtonColor: '#28b779'
+					}).then((result) => {
+						if (data.redirect) {
+							window.location.href = data.redirect;
+						}
+					});
+				} else {
+					Swal.fire({
+						icon: 'error',
+						title: 'Error!',
+						text: data.message || 'Something went wrong.',
+						confirmButtonColor: '#ee3333'
+					});
+				}
+			},
+			beforeSubmit: function(data){
+				Swal.fire({
+					title: 'Submitting...',
+					text: 'Please wait while we add the staff member.',
+					allowOutsideClick: false,
+					didOpen: () => {
+						Swal.showLoading();
+					}
+				});
+			},
 			dataType: 'json',
 			resetForm: true
 		},

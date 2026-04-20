@@ -1,0 +1,185 @@
+/* Modern UI for Gym System */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    --danger-gradient: linear-gradient(135deg, #ff5f6d 0%, #ffc371 100%);
+    --warning-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --card-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    --border-radius: 12px;
+}
+
+body {
+    font-family: 'Outfit', sans-serif !important;
+    background-color: #f4f7f6 !important;
+}
+
+/* Header & Sidebar Modernization */
+#header {
+    background: #2e363f !important;
+    border-bottom: 2px solid #764ba2;
+}
+
+#header h1 a {
+    color: #fff !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#sidebar {
+    background: #2e363f !important;
+    border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+#sidebar > ul > li > a {
+    border-bottom: 1px solid rgba(255,255,255,0.02) !important;
+    transition: all 0.3s ease;
+}
+
+#sidebar > ul > li.active > a, 
+#sidebar > ul > li > a:hover {
+    background: var(--primary-gradient) !important;
+    color: #fff !important;
+    border-radius: 0 50px 50px 0;
+    margin: 5px 10px 5px 0;
+}
+
+/* Widget & Card Modernization */
+.widget-box {
+    border: none !important;
+    border-radius: var(--border-radius) !important;
+    box-shadow: var(--card-shadow) !important;
+    background: #fff !important;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    margin-bottom: 30px !important;
+}
+
+.widget-box:hover {
+    transform: translateY(-5px);
+}
+
+.widget-title {
+    background: #fdfdfd !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    padding: 10px 5px !important;
+}
+
+.widget-title h5 {
+    font-weight: 600 !important;
+    color: #333 !important;
+    font-size: 14px !important;
+}
+
+/* Action Boxes (Dashboard) */
+.quick-actions li {
+    border-radius: var(--border-radius) !important;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.quick-actions li:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.bg_ls { background: var(--primary-gradient) !important; }
+.bg_lo { background: var(--warning-gradient) !important; }
+.bg_lg { background: var(--success-gradient) !important; }
+.bg_lr { background: var(--danger-gradient) !important; }
+.bg_lb { background: #27a9e3 !important; }
+
+/* Form Elements */
+input[type="text"], 
+input[type="password"], 
+input[type="date"], 
+input[type="number"], 
+select, 
+textarea {
+    border-radius: 8px !important;
+    border: 1px solid #e0e0e0 !important;
+    padding: 10px 15px !important;
+    height: auto !important;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.02) !important;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #764ba2 !important;
+    outline: none !important;
+}
+
+.btn {
+    border-radius: 30px !important;
+    padding: 8px 25px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease !important;
+}
+
+.btn-success {
+    background: var(--success-gradient) !important;
+    border: none !important;
+}
+
+.btn-primary {
+    background: var(--primary-gradient) !important;
+    border: none !important;
+}
+
+.btn-danger {
+    background: var(--danger-gradient) !important;
+    border: none !important;
+}
+
+/* Table Modernization */
+.table {
+    border-radius: var(--border-radius) !important;
+}
+
+.table th {
+    background: #f8f9fa !important;
+    color: #444 !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+/* Loading Overlay */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+#loading-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #764ba2;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

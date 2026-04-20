@@ -164,13 +164,13 @@ header('location:../index.php');
               <div class="controls">
                 <label>
                   <input type="radio" value="Fitness" name="services" />
-                  Fitness</label>
+                  Fitness <small>- ₹550 per month</small></label>
                 <label>
                   <input type="radio" value="Sauna" name="services" />
-                  Sauna</label>
+                  Sauna <small>- ₹350 per month</small></label>
                 <label>
                   <input type="radio" value="Cardio" name="services" />
-                  Cardio</label>
+                  Cardio <small>- ₹400 per month</small></label>
               </div>
             </div>
 
@@ -178,7 +178,7 @@ header('location:../index.php');
               <label class="control-label">Total Amount</label>
               <div class="controls">
                 <div class="input-append">
-                  <span class="add-on">$</span> 
+                  <span class="add-on">₹</span> 
                   <input type="number" placeholder="500" name="amount" class="span11">
                   </div>
               </div>

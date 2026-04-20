@@ -110,7 +110,7 @@ while($row=mysqli_fetch_array($result)){
                     </tr>
                     <tr>
                       <td>Amount Per Month:</td>
-                      <td><input id="amount" type="number" name="amount" value='<?php if($row['services'] == 'Fitness') { echo '55';} elseif ($row['services'] == 'Sauna') { echo '35';} else {echo '40';} ?>' /></td>
+                      <td><div class="input-append"><span class="add-on">₹</span><input id="amount" type="number" name="amount" value='<?php if($row['services'] == 'Fitness') { echo '55';} elseif ($row['services'] == 'Sauna') { echo '35';} else {echo '40';} ?>' /></div></td>
                     </tr>
 
                     <input type="hidden" name="paid_date" value="<?php echo $row['paid_date']; ?>">

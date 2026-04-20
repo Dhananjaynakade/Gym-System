@@ -71,6 +71,15 @@ header('location:../index.php');
             //update query
             $qry = "update members set fullname='$fullname', username='$username',dor='$dor', gender='$gender', services='$services', amount='$totalamount', plan='$plan', address='$address', contact='$contact' where user_id='$id'";
             $result = mysqli_query($conn,$qry); //query executes
+            
+            if(isset($_POST['ajax'])){
+                if($result){
+                    echo json_encode(['status' => 'success', 'message' => 'Member details updated successfully!', 'redirect' => 'members.php']);
+                } else {
+                    echo json_encode(['status' => 'error', 'message' => 'Failed to update member: ' . mysqli_error($conn)]);
+                }
+                exit;
+            }
 
             if(!$result){
                 echo"<div class='container-fluid'>";

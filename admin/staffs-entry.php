@@ -18,6 +18,9 @@ header('location:../index.php');
 <link rel="stylesheet" href="../css/matrix-media.css" />
 <link href="../font-awesome/css/fontawesome.css" rel="stylesheet" />
 <link href="../font-awesome/css/all.css" rel="stylesheet" />
+<link rel="stylesheet" href="../css/jquery.gritter.css" />
+<link rel="stylesheet" href="../css/modern-ui.css" />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -33,7 +36,7 @@ header('location:../index.php');
 
 
 <!--sidebar-menu-->
-<?php $page='staff-management'; include 'includes/sidebar.php'?>
+<?php $page='staff-entry'; include 'includes/sidebar.php'?>
 <!--sidebar-menu-->
 
 <div id="content">
@@ -161,5 +164,6 @@ header('location:../index.php');
 <script src="../js/jquery.wizard.js"></script> 
 <script src="../js/matrix.js"></script> 
 <script src="../js/matrix.wizard.js"></script>
+<script src="../js/flowless.js"></script>
 </body>
 </html>

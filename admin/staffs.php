@@ -20,6 +20,8 @@ header('location:../index.php');
 <link rel="stylesheet" href="../css/matrix-media.css" />
 <link href="../font-awesome/css/fontawesome.css" rel="stylesheet" />
 <link href="../font-awesome/css/all.css" rel="stylesheet" />
+<link rel="stylesheet" href="../css/modern-ui.css" />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -36,7 +38,7 @@ header('location:../index.php');
 <!--close-top-Header-menu-->
 <!-- Visit codeastro.com for more projects -->
 <!--sidebar-menu-->
-<?php $page='staff-management'; include 'includes/sidebar.php'?>
+<?php $page='staffs'; include 'includes/sidebar.php'?>
 <!--sidebar-menu-->
 
 <div id="content">
@@ -90,7 +92,7 @@ header('location:../index.php');
                 <td><div class='text-center'>".$row['email']."</div></td>
                 <td><div class='text-center'>".$row['address']."</div></td>
                 <td><div class='text-center'>".$row['contact']."</div></td>
-                <td><div class='text-center'><a href='edit-staff-form.php?id=".$row['user_id']."'><i class='fas fa-edit' style='color:#28b779'></i> Edit |</a> <a href='remove-staff.php?id=".$row['user_id']."' style='color:#F66;'><i class='fas fa-trash'></i> Remove</a></div></td>
+                <td><div class='text-center'><a href='edit-staff-form.php?id=".$row['user_id']."'><i class='fas fa-edit' style='color:#28b779'></i> Edit |</a> <a href='remove-staff.php?id=".$row['user_id']."' class='btn-delete-flowless' style='color:#F66;'><i class='fas fa-trash'></i> Remove</a></div></td>
                 </tr>
                 
               </tbody>";
@@ -132,5 +134,6 @@ header('location:../index.php');
 <script src="../js/jquery.dataTables.min.js"></script> 
 <script src="../js/matrix.js"></script> 
 <script src="../js/matrix.tables.js"></script>
+<script src="../js/flowless.js"></script>
 </body>
 </html>

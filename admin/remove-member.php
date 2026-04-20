@@ -20,6 +20,8 @@ header('location:../index.php');
 <link href="../font-awesome/css/fontawesome.css" rel="stylesheet" />
 <link href="../font-awesome/css/all.css" rel="stylesheet" />
 <link rel="stylesheet" href="../css/jquery.gritter.css" />
+<link rel="stylesheet" href="../css/modern-ui.css" />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -95,10 +97,10 @@ header('location:../index.php');
                 <td><div class='text-center'>".$row['contact']."</div></td>
                 <td><div class='text-center'>".$row['dor']."</div></td>
                 <td><div class='text-center'>".$row['address']."</div></td>
-                <td><div class='text-center'>$".$row['amount']."</div></td>
+                <td><div class='text-center'>₹".$row['amount']."</div></td>
                 <td><div class='text-center'>".$row['services']."</div></td>
                 <td><div class='text-center'>".$row['plan']." Month/s</div></td>
-                <td><div class='text-center'><a href='actions/delete-member.php?id=".$row['user_id']."' style='color:#F66;'><i class='fas fa-trash'></i> Remove</a></div></td>
+                <td><div class='text-center'><a href='actions/delete-member.php?id=".$row['user_id']."' class='btn-delete-flowless' style='color:#F66;'><i class='fas fa-trash'></i> Remove</a></div></td>
                 
               </tbody>";
          $cnt++;   }
@@ -152,6 +154,7 @@ header('location:../index.php');
 <script src="../js/matrix.popover.js"></script> 
 <script src="../js/jquery.dataTables.min.js"></script> 
 <script src="../js/matrix.tables.js"></script> 
+<script src="../js/flowless.js"></script> 
 
 <script type="text/javascript">
   // This function is called from the pop-up menus to transfer to

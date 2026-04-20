@@ -70,6 +70,15 @@ include 'dbcon.php';
 $qry = "insert into equipment(name,description,amount,vendor,address,contact,date,quantity) values ('$name','$description','$totalamount','$vendor','$address','$contact','$date','$quantity')";
 $result = mysqli_query($conn,$qry); //query executes
 
+if(isset($_POST['ajax'])){
+  if($result){
+    echo json_encode(['status' => 'success', 'message' => 'Equipment added successfully!', 'redirect' => 'equipment.php']);
+  } else {
+    echo json_encode(['status' => 'error', 'message' => 'Failed to add equipment: ' . mysqli_error($conn)]);
+  }
+  exit;
+}
+
 if(!$result){
   echo"<div class='container-fluid'>";
       echo"<div class='row-fluid'>";

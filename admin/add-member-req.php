@@ -76,6 +76,15 @@ include 'dbcon.php';
 $qry = "INSERT INTO members(fullname,username,password,dor,gender,services,amount,p_year,paid_date,plan,address,contact) values ('$fullname','$username','$password','$dor','$gender','$services','$totalamount','$p_year','$paid_date','$plan','$address','$contact')";
 $result = mysqli_query($conn,$qry); //query executes
 
+if(isset($_POST['ajax'])){
+  if($result){
+    echo json_encode(['status' => 'success', 'message' => 'Member registered successfully!', 'redirect' => 'members.php']);
+  } else {
+    echo json_encode(['status' => 'error', 'message' => 'Failed to register member: ' . mysqli_error($conn)]);
+  }
+  exit;
+}
+
 if(!$result){
   echo"<div class='container-fluid'>";
       echo"<div class='row-fluid'>";

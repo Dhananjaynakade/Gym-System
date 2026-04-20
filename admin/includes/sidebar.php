@@ -30,7 +30,12 @@
     <li class="<?php if($page=='member-status'){ echo 'active'; }?>"><a href="member-status.php"><i class="fas fa-eye"></i> <span>Member's Status</span></a></li>
     <li class="<?php if($page=='payment'){ echo 'active'; }?>"><a href="payment.php"><i class="fas fa-hand-holding-usd"></i> <span>Payments</span></a></li>
     <li class="<?php if($page=='announcement'){ echo 'active'; }?>"><a href="announcement.php"><i class="fas fa-bullhorn"></i> <span>Announcement</span></a></li>
-    <li class="<?php if($page=='staff-management'){ echo 'active'; }?>"><a href="staffs.php"><i class="fas fa-briefcase"></i> <span>Staff Management</span></a></li>
+    <li class="submenu <?php if($page=='staff-management'){ echo 'active'; }?>"> <a href="#"><i class="fas fa-briefcase"></i> <span>Staff Management</span></a>
+      <ul>
+        <li class="<?php if($page=='staffs'){ echo 'active'; }?>"><a href="staffs.php"><i class="fas fa-arrow-right"></i> List All Staff</a></li>
+        <li class="<?php if($page=='staff-entry'){ echo 'active'; }?>"><a href="staffs-entry.php"><i class="fas fa-arrow-right"></i> Staff Entry Form</a></li>
+      </ul>
+    </li>
     <li class="submenu"> <a href="#"><i class="fas fa-file"></i> <span>Reports</span></a>
     <ul>
         <li class="<?php if($page=='chart'){ echo 'active'; }?>"><a href="reports.php"><i class="fas fa-arrow-right"></i> Chart Representation</a></li>

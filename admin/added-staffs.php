@@ -60,6 +60,15 @@ header('location:../index.php');
                     //code after connection is successfull
                     $qry = "insert into staffs(fullname,username,password,email,address,designation,gender,contact) values ('$fullname','$username','$password','$email','$address','$designation','$gender','$contact')";
                     $result = mysqli_query($conn,$qry); //query executes
+                    
+                    if(isset($_POST['ajax'])){
+                      if($result){
+                        echo json_encode(['status' => 'success', 'message' => 'Staff details has been added successfully!', 'redirect' => 'staffs.php']);
+                      } else {
+                        echo json_encode(['status' => 'error', 'message' => 'Error occurred while submitting staff details.']);
+                      }
+                      exit;
+                    }
 
                     if(!$result){
                     echo"<div class='container-fluid'>";

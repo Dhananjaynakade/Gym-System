@@ -22,6 +22,15 @@ header('location:../index.php');
             //update query
             $qry = "update staffs set fullname='$fullname', username='$username', gender='$gender', contact='$contact',  address='$address', designation='$designation' where user_id='$id'";
             $result = mysqli_query($con,$qry); //query executes
+            
+            if(isset($_POST['ajax'])){
+              if($result){
+                echo json_encode(['status' => 'success', 'message' => 'Staff details has been updated successfully!', 'redirect' => 'staffs.php']);
+              } else {
+                echo json_encode(['status' => 'error', 'message' => 'Error occurred while updating staff details.']);
+              }
+              exit;
+            }
 
             if(!$result){
                 echo"ERROR!!";

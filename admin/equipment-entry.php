@@ -20,6 +20,8 @@ header('location:../index.php');
 <link href="../font-awesome/css/fontawesome.css" rel="stylesheet" />
 <link href="../font-awesome/css/all.css" rel="stylesheet" />
 <link rel="stylesheet" href="../css/jquery.gritter.css" />
+<link rel="stylesheet" href="../css/modern-ui.css" />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
 </head>
 <body>
@@ -59,7 +61,7 @@ header('location:../index.php');
           <h5>Eqipment-info</h5>
         </div>
         <div class="widget-content nopadding">
-          <form action="add-equipment-req.php" method="POST" class="form-horizontal">
+          <form action="add-equipment-req.php" method="POST" class="form-horizontal" data-flowless="true" id="equipmentEntryForm">
             <div class="control-group">
               <label class="control-label">Equipment :</label>
               <div class="controls">
@@ -159,7 +161,7 @@ header('location:../index.php');
               <label class="control-label">Cost Per Item: </label>
               <div class="controls">
                 <div class="input-append">
-                  <span class="add-on">$</span> 
+                  <span class="add-on">₹</span> 
                   <input type="number" placeholder="269" name="amount" class="span11" required>
                   </div>
               </div>
@@ -225,6 +227,7 @@ header('location:../index.php');
 <script src="../js/matrix.popover.js"></script> 
 <script src="../js/jquery.dataTables.min.js"></script> 
 <script src="../js/matrix.tables.js"></script> 
+<script src="../js/flowless.js"></script> 
 
 <script type="text/javascript">
   // This function is called from the pop-up menus to transfer to
