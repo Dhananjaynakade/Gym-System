@@ -73,7 +73,7 @@ if(isset($_POST['fullname'])){
   // 
 include 'dbcon.php';
 //code after connection is successfull
-$qry = "INSERT INTO members(fullname,username,password,dor,gender,services,amount,p_year,paid_date,plan,address,contact) values ('$fullname','$username','$password','$dor','$gender','$services','$totalamount','$p_year','$paid_date','$plan','$address','$contact')";
+$qry = "INSERT INTO members(fullname,username,password,dor,gender,services,amount,p_year,paid_date,plan,address,contact,attendance_count) values ('$fullname','$username','$password','$dor','$gender','$services','$totalamount','$p_year','$paid_date','$plan','$address','$contact',0)";
 $result = mysqli_query($conn,$qry); //query executes
 
 if(isset($_POST['ajax'])){
