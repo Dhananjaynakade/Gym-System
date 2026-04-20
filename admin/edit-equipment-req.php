@@ -4,7 +4,7 @@
       header('location:../index.php');	
     }
 ?>
-<!-- Visit codeastro.com for more projects -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +39,7 @@
   <button type="submit" class="tip-bottom" title="Search"><i class="icon-search icon-white"></i></button>
 </div> -->
 <!--close-top-serch-->
-<!-- Visit codeastro.com for more projects -->
+
 <!--sidebar-menu-->
 <?php $page='update-equip'; include 'includes/sidebar.php'?>
 
@@ -71,6 +71,16 @@
             //update query
             $qry = "update equipment set name='$name', amount='$totalamount',vendor='$vendor', description='$description', address='$address', address='$address', contact='$contact', date='$date', quantity='$quantity' where id='$id'";
             $result = mysqli_query($conn,$qry); //query executes
+
+            if(isset($_POST['ajax'])){
+              if($result){
+                echo json_encode(['status' => 'success', 'message' => 'Equipment details have been updated successfully!', 'redirect' => 'equipment.php']);
+              } else {
+                $errorMsg = mysqli_error($conn);
+                echo json_encode(['status' => 'error', 'message' => 'Error: ' . $errorMsg]);
+              }
+              exit;
+            }
 
             if(!$result){
                 echo"<div class='container-fluid'>";
@@ -111,7 +121,7 @@
                     echo"</div>";
                     echo"</div>";
                 echo"</div>";
-                // <!-- Visit codeastro.com for more projects -->
+                // 
             }
 
             }else{
@@ -126,7 +136,7 @@
 </div>
 
 <!--end-main-container-part-->
-<!-- Visit codeastro.com for more projects -->
+
 <!--Footer-part-->
 
 <div class="row-fluid">

@@ -11,6 +11,13 @@ $(document).ready(function() {
         e.preventDefault();
         
         const $form = $(this);
+        
+        // HTML5 Validation Check
+        if ($form[0].checkValidity && !$form[0].checkValidity()) {
+            $form[0].reportValidity();
+            return;
+        }
+
         const url = $form.attr('action');
         const formData = $form.serialize() + '&ajax=1';
         

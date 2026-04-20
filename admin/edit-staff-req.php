@@ -5,7 +5,7 @@ if(!isset($_SESSION['user_id'])){
 header('location:../index.php');	
 }
 ?>
-<!-- Visit codeastro.com for more projects -->
+
 <?php 
         
             if(isset($_POST['fullname'])){
@@ -16,7 +16,7 @@ header('location:../index.php');
             $address = $_POST["address"];
             $designation = $_POST["designation"];
             $id = $_POST["id"];
-            // <!-- Visit codeastro.com for more projects -->
+            // 
             include 'dbcon.php';
             //code after connection is successfull
             //update query
@@ -27,7 +27,8 @@ header('location:../index.php');
               if($result){
                 echo json_encode(['status' => 'success', 'message' => 'Staff details has been updated successfully!', 'redirect' => 'staffs.php']);
               } else {
-                echo json_encode(['status' => 'error', 'message' => 'Error occurred while updating staff details.']);
+                $errorMsg = mysqli_error($con);
+                echo json_encode(['status' => 'error', 'message' => 'Error: ' . $errorMsg]);
               }
               exit;
             }

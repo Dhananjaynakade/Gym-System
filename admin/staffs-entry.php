@@ -5,7 +5,7 @@ if(!isset($_SESSION['user_id'])){
 header('location:../index.php');	
 }
 ?>
-<!-- Visit codeastro.com for more projects -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +52,7 @@ header('location:../index.php');
             <h5>Staff Details</h5>
           </div>
           <div class="widget-content nopadding">
-            <form id="form-wizard" action="added-staffs.php" class="form-horizontal" method="POST">
+            <form id="form-wizard" action="added-staffs.php" class="form-horizontal" method="POST" data-flowless="true">
               <div id="form-wizard-1" class="step">
 
               <div class="control-group">
