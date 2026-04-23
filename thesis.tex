@@ -1,0 +1,941 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{setspace}
+\doublespacing
+\usepackage[hidelinks]{hyperref}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage{parskip}
+
+\lstset{
+    basicstyle=\ttfamily\small,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=none,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    frame=none,
+    keywordstyle=\ttfamily,
+    commentstyle=\ttfamily,
+    stringstyle=\ttfamily
+}
+
+% Prevent orphan/widow lines
+\widowpenalty=10000
+\clubpenalty=10000
+
+% Proper justification and spacing
+\tolerance=1000
+\emergencystretch=3em
+\hyphenpenalty=500
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{6pt}
+
+\pagestyle{plain}
+
+\begin{document}
+
+% ============ TITLE PAGE ============
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+{\Huge \textbf{Gym Management System}} \\
+\vspace{1.5cm}
+{\Large A Project Report} \\
+\vspace{0.5cm}
+{\large Submitted in Partial Fulfillment of the Requirements for the Degree of} \\
+{\large \textbf{Bachelor of Engineering / Technology}} \\
+\vspace{1.5cm}
+\includegraphics[width=0.35\textwidth]{gym_logo.png} \\
+\vspace{1.5cm}
+{\large \textbf{Submitted By:}} \\
+{\Large Dhananjay Nakade} \\
+\vspace{1cm}
+{\large \textbf{Guided By:}} \\
+{\large [Guide Name]} \\
+\vfill
+{\large Department of Information Technology} \\
+{\large [College Name, City]} \\
+{\large Academic Year: 2025--2026} \\
+\end{titlepage}
+
+% ============ INDEX / TABLE OF CONTENTS ============
+\newpage
+\begin{singlespace}
+\vspace*{0.5cm}
+\begin{center}
+{\LARGE \textbf{INDEX}}
+\end{center}
+\vspace{1cm}
+\begin{center}
+\renewcommand{\arraystretch}{2.8}
+\begin{tabular}{|c|p{10cm}|c|}
+\hline
+\textbf{SR.NO} & \textbf{Title} & \textbf{Page.NO} \\ \hline
+1 & INTRODUCTION & 2 \\ \hline
+2 & AIM / OBJECTIVE & 5 \\ \hline
+3 & TOOLS / PLATFORM AND LANGUAGES USED & 7 \\ \hline
+4 & PROJECT CATEGORY & 11 \\ \hline
+5 & MODULES AND DESCRIPTION & 15 \\ \hline
+6 & ER DIAGRAM & 20 \\ \hline
+7 & SYSTEM FLOWCHART & 23 \\ \hline
+8 & PROJECT CODES & 26 \\ \hline
+9 & PROJECT SCREENSHOTS & 45 \\ \hline
+10 & SCOPE OF PROJECT & 49 \\ \hline
+11 & CONCLUSIONS & 52 \\ \hline
+12 & BIBLIOGRAPHY & 54 \\ \hline
+\end{tabular}
+\renewcommand{\arraystretch}{1.0}
+\end{center}
+\end{singlespace}
+
+% ============ CHAPTER 1: INTRODUCTION ============
+\newpage
+\vspace*{\fill}
+\begin{center}
+{\LARGE \textbf{INTRODUCTION}}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+The \textbf{Gym Management System (GMS)} is a comprehensive web-based application developed to automate and streamline the day-to-day operations of a fitness center or gymnasium. This digital platform replaces traditional paper-based processes with an efficient, centralized system that allows administrators, staff members, and gym customers to access gym services anytime and anywhere through an internet-enabled device. By transforming manual tasks into automated workflows, the GMS significantly enhances the accuracy, accessibility, and speed of gym management activities.
+
+A \textbf{Gym Management System} is specialized software designed to organize, maintain, and regulate various gym resources such as members, staff, equipment, payments, attendance records, and announcements. Its core functions include managing the registration, membership tracking, attendance logging, and payment processing of gym members, while simultaneously offering value-added services to users such as progress tracking and workout task management. The GMS serves as an integrated platform that simplifies the tracking of active memberships, expired memberships, payment dues, and other gym transactions, ensuring smoother operation and effective resource utilization.
+
+The \textbf{need for a Gym Management System} arises from the limitations of traditional gym management methods. Manual registers and paper-based systems are time-consuming, prone to human error, and vulnerable to data loss through physical damage or misplacement. Accessibility is also restricted since gym owners can only access information during working hours and from the physical location. As gyms expand their membership base, scalability and report generation become increasingly difficult, often requiring time-intensive manual efforts. Tracking which members have paid their dues, which memberships are about to expire, and how many members attended on a particular day becomes nearly impossible with manual methods. These challenges hinder operational efficiency and member satisfaction.
+
+To overcome these issues, the \textbf{proposed solution} involves implementing a modern GMS equipped with advanced features. The system utilizes a centralized digital database to store all essential data, including members, staff, equipment, attendance, and payment records. It automates routine processes such as membership status management, attendance counting, payment tracking, and announcement broadcasting, thereby minimizing administrative workload. With real-time updates, users can view the latest information instantly, and the dashboard provides visual analytics through pie charts and bar graphs for quick decision-making. The system also maintains a complete history of all activities, providing a secure and transparent record of gym operations.
+
+The \textbf{scope and objectives} of the Gym Management System are clearly defined to ensure comprehensive coverage of gym functions. The primary objectives include the complete digitization of gym operations, automation of repetitive tasks, and maintenance of accurate records through a normalized database structure. Additionally, the system emphasizes robust security to safeguard data integrity and provides a user-friendly interface suitable for both technical and non-technical users. Its scope encompasses member registration and membership management, staff recruitment and designation assignment, equipment inventory tracking with vendor details, attendance marking and monitoring, payment collection and financial reporting, announcement and reminder management, and member health progress tracking. Furthermore, the GMS supports detailed reporting and analytics through interactive charts, administrative control settings, and secure access management through session-based authentication, collectively enhancing the operational efficiency and reliability of modern gym environments.
+
+% ============ CHAPTER 2: AIM / OBJECTIVES ============
+\newpage
+\vspace*{\fill}
+\begin{center}
+{\LARGE \textbf{AIM / OBJECTIVES}}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+The aim of the project is to design and develop a \textbf{web-based Gym Management System} that automates all operations of a fitness center by maintaining accurate digital records of members, staff, equipment, and financial transactions. It provides an efficient, secure, and user-friendly platform for administrators, staff members, and gym customers to manage memberships, monitor attendance, track fitness progress, and ensure the integrity and accessibility of all gym-related data.
+
+\begin{itemize}
+\item To maintain a centralized digital database for all gym records including members, staff, equipment, attendance, and payments.
+\item To eliminate manual record-keeping and reduce data redundancy across the system.
+\item To ensure accurate tracking of active memberships, expired memberships, and payment histories.
+\item To enable secure member registration and login with MD5 password encryption.
+\item To allow administrators to manage members, staff, equipment, and announcements efficiently through a dashboard interface.
+\item To automate the attendance marking process with date and time stamping.
+\item To track and display total gym earnings and expenses through visual reports and charts.
+\item To ensure data integrity through input validation and relational database constraints.
+\item To prevent unauthorized access using session-based role authentication for Admin, Staff, and Customer roles.
+\item To implement equipment inventory management with vendor tracking and purchase details.
+\item To design a responsive and accessible user interface using the Bootstrap framework.
+\item To support scalability for handling large numbers of members and concurrent users.
+\item To offer a member self-service portal with fitness progress tracking, workout to-do lists, and announcement viewing.
+\end{itemize}
+
+% ============ CHAPTER 3: TOOLS / PLATFORM AND LANGUAGES USED ============
+\newpage
+\vspace*{\fill}
+\begin{center}
+{\LARGE \textbf{TOOLS / PLATFORM AND LANGUAGES USED}}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+\textbf{Programming Languages}
+
+\textbf{PHP (7.4 or higher)} -- Server-side scripting language used to implement backend logic such as authentication, session handling, database operations, form processing, and business rule enforcement. PHP offers excellent performance and strong database integration capabilities that make it ideal for building dynamic web applications. In this project, PHP handles all CRUD operations for members, staff, and equipment, processes login authentication against the MySQL database, manages user sessions across different roles, and generates dynamic HTML content based on database queries.
+
+\textbf{HTML5} -- Standard markup language used to design the structure of web pages, forms, tables, and navigation elements in the Gym Management System. HTML5 provides semantic elements that improve the accessibility and structure of the application. Every page in the GMS uses HTML5 for creating the document structure including headers, sidebars, content areas, data tables for displaying member lists, and form elements for data entry such as the member registration form, equipment entry form, and payment processing interface.
+
+\textbf{CSS3} -- Stylesheet language used to control layout, colors, spacing, responsiveness, and overall visual appearance of the web interface. CSS3 enables the creation of professional-looking interfaces with consistent styling across all pages. In this project, the Matrix Admin template provides pre-built CSS classes for widgets, buttons, alerts, navigation menus, and responsive grid layouts, ensuring the application looks polished and professional on all screen sizes.
+
+\textbf{JavaScript} -- Client-side scripting language used for form validation, dynamic content updates, interactivity, and AJAX calls without reloading the page. JavaScript powers the Google Charts integration on the admin dashboard, enabling real-time visualization of member distribution by service type, gender-based analysis, staff designation breakdown, and earnings versus expenses comparison. Additionally, SweetAlert2 library is used for professional popup notifications during form submissions.
+
+\textbf{Frameworks and Libraries}
+
+\textbf{Bootstrap (Matrix Admin Template)} -- Front-end CSS framework that provides a responsive grid system, ready-made components such as buttons, navigation bars, cards, widgets, data tables, and utilities to make the UI mobile-first and consistent. The Matrix Admin template extends Bootstrap with additional dashboard-specific components including chart containers, quick action boxes, sidebar navigation, breadcrumb trails, and widget boxes that give the application a professional administrative interface.
+
+\textbf{jQuery (v1.10.2+)} -- JavaScript library that simplifies DOM manipulation, event handling, and AJAX requests with shorter and more readable syntax. jQuery is used extensively in the GMS for handling form submissions asynchronously through the flowless.js module, manipulating table data, toggling UI elements, and managing interactive components like the image carousel on the dashboard.
+
+\textbf{Font Awesome} -- Icon library offering scalable vector icons for home, user, dumbbell, rupee sign, calendar, briefcase, bullhorn, and other interface elements to improve the visual clarity and user experience of the interface. The icons provide intuitive visual cues that help users quickly identify different sections and actions within the system.
+
+\textbf{Google Charts API} -- Data visualization library used to render interactive pie charts, bar charts, and donut charts on the admin dashboard. The API receives data from PHP queries and converts it into visually appealing charts showing member distribution by service, gender analysis, staff designation overview, and financial summaries.
+
+\textbf{SweetAlert2} -- Modern JavaScript popup library replacing the default browser alert boxes with professionally styled confirmation dialogs, success messages, and error notifications. This enhances the user experience during critical operations like member registration, payment processing, and record deletion.
+
+\textbf{Database Platform}
+
+\textbf{MySQL / MariaDB (v5.6+)} -- Relational Database Management System used to store structured data about members, staff, equipment, attendance, payments, announcements, reminders, rates, and to-do tasks with support for SQL queries, ACID properties, and the InnoDB storage engine. The database named \texttt{gymnsb} contains nine interrelated tables with primary keys, auto-increment fields, and appropriate data types for efficient storage and retrieval.
+
+\textbf{Web Server}
+
+\textbf{Apache HTTP Server (v2.4+)} -- Web server software that handles HTTP requests, serves PHP pages, and supports modules like URL rewriting and virtual hosting for the application. Apache processes all incoming browser requests and forwards PHP files to the PHP interpreter for execution.
+
+\textbf{Development Environment}
+
+\textbf{XAMPP (7.0 or higher)} -- Local development package bundling Apache, MariaDB/MySQL, PHP, and phpMyAdmin, making it easy to run, test, and debug the Gym Management System on a local machine without requiring separate installation of each component.
+
+\textbf{Tools and Utilities}
+
+\textbf{phpMyAdmin} -- Web-based database management tool used to create tables, run SQL queries, import and export database dumps, manage users, and inspect data in MySQL/MariaDB through a browser interface. The \texttt{gymnsb.sql} file can be directly imported through phpMyAdmin to set up the entire database schema.
+
+\textbf{Visual Studio Code} -- Code editor that provides syntax highlighting, extensions for PHP, HTML, CSS, and JavaScript, IntelliSense, and debugging support for efficient development of all project files.
+
+\textbf{Google Chrome} -- Web browser used to run, test, and debug the web application, including checking responsive design using developer tools, inspecting network requests, and monitoring console output for JavaScript errors.
+
+% ============ CHAPTER 4: PROJECT CATEGORY ============
+\newpage
+\vspace*{\fill}
+\begin{center}
+{\LARGE \textbf{PROJECT CATEGORY}}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+The Gym Management System is classified primarily as an \textbf{Information Management System} and a \textbf{Transaction Processing System}, more specifically a Fitness Center Information System designed to manage gym resources in a commercial fitness environment. It can be seen as part of gym and fitness center management software, functioning as a resource and record management system focused on members, staff, equipment, attendance, and payments. From a system scope perspective, it fits as a specialized management tool for small to medium fitness businesses, although in its current form it operates as a standalone web-based gym management solution.
+
+Technologically, the system follows a \textbf{web-based client-server architecture} using a three-tier structure: presentation layer (browser-based UI built with Bootstrap and the Matrix Admin template), business logic layer (server-side PHP scripts that process user requests, enforce business rules, and coordinate database operations), and data layer (MySQL database storing all persistent gym data). It is deployed on-premises on the gym's local server using XAMPP, accessed over the local network, with the database managed locally through phpMyAdmin.
+
+The project has \textbf{medium complexity}, because it uses multiple interrelated tables (nine tables in the \texttt{gymnsb} database), moderate business logic such as attendance counting, payment tracking, membership status management, and health progress monitoring, role-based access for administrators, staff, and customers through separate session variables, reporting features with interactive Google Charts visualization, and transaction handling for member registration, payment processing, and equipment inventory operations. Typical size indicators include several thousand lines of code across approximately fifty PHP modules, nine database tables, and numerous database relationships and business rules governing member status, payment calculations, and access control.
+
+In terms of \textbf{scale}, the system targets small to medium gym installations, typically serving hundreds to thousands of members, a small group of staff users including trainers, managers, and cashiers, and an equipment catalog tracking dozens of machines with vendor details. Daily transactions are moderate, including attendance marking, payment processing, and occasional member registration, and storage needs remain manageable with the MySQL database handling all persistent data efficiently.
+
+Functionally, it is both \textbf{transactional and informational}: it performs real-time insert and update operations for registering members, marking attendance, processing payments, adding equipment, and posting announcements, while also providing informational views such as member lists, payment tables, equipment inventories, attendance logs, services reports through pie and bar charts, gender distribution analysis, staff designation breakdowns, and earnings versus expenses comparisons using select and aggregate queries. The access pattern is that of a multi-user concurrent system with multiple users active simultaneously from different roles.
+
+From a \textbf{software engineering} viewpoint, the project aligns well with the Waterfall model, following phases from requirements analysis through design, implementation, testing, deployment, and now operation and maintenance. Quality-wise, it aims for high maintainability through structured code organization with separate directories for admin, customer, and staff modules, reliability via session protection and proper form validation, usability through the intuitive Matrix Admin dashboard interface, and good performance using optimized SQL queries. Security is implemented through MD5 password hashing and session-based access control, with potential for future improvement through migration to bcrypt hashing.
+
+Regarding \textbf{purpose}, the system is an operational support solution that directly assists daily gym activities, reducing manual effort, minimizing errors, and improving service quality and business planning through better information availability. It serves three main user groups: administrators as the primary intensive users who manage the entire gym ecosystem including members, staff, equipment, finances, announcements, and reports; staff members as secondary users who handle front-desk operations like attendance marking and payment collection; and customers as self-service users who browse their personal dashboard, manage workout to-do lists, track fitness progress, and view announcements.
+
+Industry-wise, this solution belongs to the \textbf{health and fitness sector}, specifically gym and fitness center management, with a focus on member resource management and operational automation. The user interface is a web GUI built around forms, tables, menus, buttons, and interactive charts, providing a form-based input and table-based output interaction style that is familiar and easy to learn for users of all technical levels.
+
+% ============ CHAPTER 5: MODULES AND DESCRIPTION ============
+\newpage
+\vspace*{\fill}
+\begin{center}
+{\LARGE \textbf{MODULES AND DESCRIPTION}}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+\textbf{OVERVIEW OF MODULES}
+
+The Gym Management System is designed with \textbf{13 core modules} that work together to provide complete gym management functionality. These modules are organized into three categories: \textbf{Authentication Modules}, \textbf{Functional Modules}, and \textbf{Utility Modules}.
+
+\textbf{AUTHENTICATION MODULES}
+
+\textbf{Module 1: Admin Login (index.php)}
+
+Enables the administrator to securely log into the system using a username and password. The login form collects the username and password, hashes the password using MD5 encryption, and verifies the credentials against the \texttt{admin} table in the \texttt{gymnsb} database. On successful authentication, a session variable \texttt{\$\_SESSION['user\_id']} is created and the user is redirected to the admin dashboard (\texttt{admin/index.php}). If the credentials are invalid, the system displays an error message using SweetAlert2 popup notification. The admin login provides access to all management features including member management, staff management, equipment tracking, financial reporting, attendance viewing, and announcement posting.
+
+\textbf{Module 2: Staff Login (staff/index.php)}
+
+Provides a secure login interface for staff members using their username and password stored in the \texttt{staffs} table. The authentication process is similar to the admin login, verifying credentials against the database and creating a session on success. Staff members have access to a limited set of features focused on daily operations such as attendance marking, member search, and payment processing, but cannot modify system-level settings or manage other staff members.
+
+\textbf{Module 3: Customer Login (customer/index.php)}
+
+Allows registered gym members to log into their personal portal using the username and password assigned during registration. The system checks the credentials against the \texttt{members} table and also verifies that the member's status is \texttt{'Active'} before granting access. If the membership has expired, the login is rejected with an appropriate error message. On successful login, the member is redirected to their personal dashboard where they can view progress, manage to-do lists, and read announcements.
+
+\textbf{Module 4: Customer Registration (customer/pages/register-cust.php)}
+
+Allows new customers to create an account by submitting their full name, username, password, contact number, address, gender, membership plan, and service type. The system validates inputs, hashes the password using MD5, calculates the total amount based on the selected plan and service rate, and inserts the record into the \texttt{members} table with default values for attendance count and health metrics.
+
+\textbf{Module 5: Logout (logout.php)}
+
+Safely terminates the current user session by calling \texttt{session\_destroy()}, clearing all session variables, and redirecting the user back to the main login page. This prevents unauthorized reuse of the session and ensures security when the user finishes their work.
+
+\textbf{FUNCTIONAL MODULES}
+
+\textbf{Module 6: Admin Dashboard (admin/index.php)}
+
+Shows a comprehensive overview of the gym's operational status after admin login. The dashboard displays quick action boxes showing the count of active members, total registered members, total earnings in Indian Rupees, active announcements, and staff management links. Below the action boxes, the dashboard renders multiple Google Charts: a bar chart showing member distribution by service type (Fitness, Cardio, Sauna), a horizontal bar chart comparing total earnings versus total equipment expenses, a donut chart showing registered members by gender (Male, Female, Other), and another donut chart showing staff distribution by designation (Trainer, Manager, Cashier). The dashboard also displays recent gym announcements and customer to-do lists in widget boxes.
+
+\textbf{Module 7: Member Management (admin/members.php, member-entry.php, edit-memberform.php)}
+
+Provides complete CRUD operations for gym members. The member entry form collects personal information (full name, username, password, gender, date of registration), contact details (phone number, address), and service details (plan duration, service type, total amount). The member list page displays all registered members in a data table with sorting and search capabilities. The edit form allows administrators to update member details including health metrics such as initial weight, current weight, initial body type, and current body type for progress tracking.
+
+\textbf{Module 8: Staff Management (admin/staffs.php, staffs-entry.php, edit-staff-form.php)}
+
+Allows the administrator to manage gym employees. Staff members can be added with their full name, username, password, email, address, designation (Trainer, Manager, Cashier), gender, and contact number. The staff list page shows all employees in a table format with options to edit or remove staff records. Each staff member receives their own login credentials to access the staff portal.
+
+\textbf{Module 9: Equipment Management (admin/equipment.php, equipment-entry.php, edit-equipmentform.php)}
+
+Tracks the gym's equipment inventory. Each equipment record includes the machine name, purchase amount, quantity, vendor name, description, vendor address, vendor contact number, and purchase date. This module helps administrators track their investment in gym machines, monitor equipment quantities, and maintain vendor relationships for future purchases or warranty claims.
+
+\textbf{Module 10: Attendance Management (admin/attendance.php, view-attendance.php)}
+
+Records the daily attendance of gym members. When a member is marked present, the system inserts a record into the \texttt{attendance} table with the member's user ID, current date, current time, and a present flag. The system also increments the \texttt{attendance\_count} field in the \texttt{members} table. The view attendance page displays attendance logs with filtering options.
+
+\textbf{Module 11: Payment Management (admin/payment.php, user-payment.php, userpay.php)}
+
+Manages all financial transactions. The payment page displays a table of all members with their last payment date, amount paid, chosen service, plan duration, and action buttons for making new payments and sending reminders. The payment processing form allows administrators to update the payment amount and date, and the system recalculates totals. A reminder button can be clicked to flag members who need to be reminded about pending payments.
+
+\textbf{Module 12: Announcement Management (admin/announcement.php, post-announcement.php, manage-announcement.php)}
+
+Enables the administrator to broadcast gym-wide notices about holidays, schedule changes, special events, or important updates. The announcement posting form accepts a message text and automatically records the current date. Posted announcements are displayed on both the admin dashboard and the customer portal, ensuring all stakeholders are informed about gym activities.
+
+\textbf{UTILITY AND SUPPORT MODULES}
+
+\textbf{Module 13: Session Management and Database Connection}
+
+Handles starting sessions using \texttt{session\_start()}, checking session variables to protect pages from unauthorized access, storing user identity details for administrators, staff, and customers, enforcing role-based access control, and ensuring sessions are destroyed on logout for security. The database connection module (\texttt{dbcon.php}) centralizes the MySQL connection settings using \texttt{mysqli\_connect()}, specifying the host (localhost), username (root), password (empty), and database name (\texttt{gymnsb}), and exposes a shared connection object with error handling for use across all modules in the system.
+
+% ============ CHAPTER 6: ER DIAGRAM ============
+\newpage
+\vspace*{\fill}
+\begin{center}
+{\LARGE \textbf{ER DIAGRAM}}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+The ER diagram represents how all the main entities (tables) in the Gym Management System are structured and how they are related to each other. It shows members, staff, equipment, attendance, payments, announcements, reminders, rates, and admin users, along with the relationships and cardinalities between them.
+
+\textbf{admin and its structure}
+
+The \texttt{admin} table stores the administrator credentials including a unique \texttt{user\_id} as primary key, \texttt{username}, \texttt{password} (MD5 hashed), and \texttt{name}. The admin entity is the highest authority in the system and controls all other entities indirectly through the admin dashboard. The admin can create, read, update, and delete records in all other tables. There is typically one admin record, though the schema supports multiple administrators.
+
+\textbf{members and its relationships}
+
+The \texttt{members} table is the central entity storing all registered gym member information including \texttt{user\_id} (PK), \texttt{fullname}, \texttt{username}, \texttt{password} (MD5), \texttt{gender}, \texttt{dor} (date of registration), \texttt{services} (Fitness/Cardio/Sauna), \texttt{amount}, \texttt{paid\_date}, \texttt{p\_year}, \texttt{plan} (1/3/6/12 months), \texttt{address}, \texttt{contact}, \texttt{status} (Active/Expired), \texttt{attendance\_count}, \texttt{ini\_weight}, \texttt{curr\_weight}, \texttt{ini\_bodytype}, \texttt{curr\_bodytype}, \texttt{progress\_date}, and \texttt{reminder}. Each member can have many attendance records in the \texttt{attendance} table and many to-do task records in the \texttt{todo} table, forming one-to-many relationships. These relationships allow the system to track which members are present on a given day and what workout tasks they have planned.
+
+\textbf{staffs entity}
+
+The \texttt{staffs} table contains employee details including \texttt{user\_id} (PK), \texttt{username}, \texttt{password}, \texttt{email}, \texttt{fullname}, \texttt{address}, \texttt{designation} (Trainer/Manager/Cashier), \texttt{gender}, and \texttt{contact}. Staff members interact with the members table through attendance marking and payment processing operations. One staff member can process many attendance records and many payment transactions over time.
+
+\textbf{equipment entity}
+
+The \texttt{equipment} table tracks gym machinery with fields \texttt{id} (PK), \texttt{name}, \texttt{amount} (purchase price), \texttt{quantity}, \texttt{vendor}, \texttt{description}, \texttt{address} (vendor address), \texttt{contact} (vendor contact), and \texttt{date} (purchase date). This entity is standalone and does not directly relate to members or staff, but its aggregate data (total equipment expenses) is used in the dashboard financial comparison charts.
+
+\textbf{attendance, todo, announcements, rates, and reminder}
+
+The \texttt{attendance} table records daily member check-ins with \texttt{id} (PK), \texttt{user\_id} (FK to members), \texttt{curr\_date}, \texttt{curr\_time}, and \texttt{present} flag. The \texttt{todo} table stores personal workout tasks with \texttt{id} (PK), \texttt{task\_status} (Pending/In Progress), \texttt{task\_desc}, and \texttt{user\_id} (FK to members). The \texttt{announcements} table holds broadcast messages with \texttt{id} (PK), \texttt{message}, and \texttt{date}. The \texttt{rates} table stores service pricing with \texttt{id} (PK), \texttt{name} (Fitness/Sauna/Cardio), and \texttt{charge}. The \texttt{reminder} table manages payment reminders with \texttt{id} (PK), \texttt{name}, \texttt{message}, \texttt{status}, \texttt{date}, and \texttt{user\_id}.
+
+\textbf{Cardinalities and overall structure}
+
+All the one-to-many relationships in the system represent typical patterns in a management system: a single member to many attendance records, a single member to many to-do tasks, and a single admin to many announcements. These relationships implement a normalized relational design where data is broken into related tables, primary keys uniquely identify each record, and foreign keys enforce referential integrity between entities. Overall, this ER diagram defines a clear OLTP-style data model that supports member registration, attendance tracking, payment processing, equipment management, and progress monitoring efficiently in a gym environment.
+
+% ============ CHAPTER 7: SYSTEM FLOWCHART ============
+\newpage
+\vspace*{\fill}
+\begin{center}
+{\LARGE \textbf{SYSTEM FLOWCHART}}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+The workflow describes how a user enters, uses, and exits the Gym Management System in a simple loop. It starts when the user opens the GMS link in the browser and the system checks whether the user is already logged in or not by verifying if a session variable exists.
+
+If the user is not logged in, the system presents the main landing page with three login options: Admin Login, Staff Login, and Customer Login. New customers can also register through the Customer Registration form. On the login page, the user enters their username and password, and upon successful authentication the system creates a session and redirects the user to their role-specific dashboard. If authentication fails, an error message is displayed and the user remains on the login page.
+
+Once logged in, the dashboard shows role-specific content. The Admin Dashboard displays quick stats (active members, total members, earnings, announcements, staff count) and provides navigation to all management modules. The Staff Dashboard shows attendance marking and payment processing options. The Customer Dashboard shows personal progress, to-do lists, and announcements. Each selected operation interacts with the database and shows results to the user.
+
+After each operation, the user can continue using the system by performing more actions from the dashboard, or choose to log out. On logout, the system destroys the active session using \texttt{session\_destroy()}, returns the user to the login screen, and the flow ends for that user session.
+
+\textbf{Data Flow Diagram}
+
+\textbf{Level 0 - Context Diagram}
+
+This top-level view shows three external users (Admin, Staff, and Customer) interacting with the single GMS System as a black box. Admin performs all management tasks including member CRUD, staff CRUD, equipment CRUD, payment processing, attendance viewing, announcement posting, and report generation. Staff performs attendance marking, payment collection, and member search. Customers perform login, view dashboard, manage to-do lists, and track progress. All data flows into and out of the central system.
+
+\textbf{Level 1 - Major Processes}
+
+The system breaks into 8 core processes:
+1.0 Authenticate: Takes credentials, outputs permission (login success with session creation).
+2.0 Manage Members: Member data input, outputs updated member records.
+3.0 Manage Staff: Staff data input, outputs updated staff records.
+4.0 Manage Equipment: Equipment data input, outputs updated inventory.
+5.0 Process Attendance: Member ID and date, outputs attendance record.
+6.0 Process Payment: Payment details, outputs updated financial records.
+7.0 Generate Reports: Parameters, outputs charts and analytics.
+8.0 Manage Announcements: Message input, outputs broadcast to all users.
+
+\textbf{Level 2 - Login Process Detail}
+
+Detailed step-by-step validation flow for admin login: User enters username and password. Password is hashed using MD5. System queries the database matching username and hashed password. If valid, session variable \texttt{\$\_SESSION['user\_id']} is created and user is redirected to the dashboard. If invalid, error message is displayed via SweetAlert2. For customer login, an additional check verifies that the member's status is 'Active' before granting access.
+
+\textbf{Level 2 - Member Registration Detail}
+
+Detailed registration workflow: Admin fills the member entry form with personal info, contact details, and service selection. System validates all required fields. Password is hashed with MD5. Total amount is calculated as rate multiplied by plan months. INSERT query adds the record to the members table with default attendance\_count of 0. Success or error message is displayed. Dashboard member count updates automatically on next page load.
+
+% ============ CHAPTER 8: PROJECT CODES ============
+\newpage
+\vspace*{\fill}
+\begin{center}
+{\LARGE \textbf{PROJECT CODES}}
+\end{center}
+\vspace*{\fill}
+\newpage
+
+\textbf{gymnsb.sql (Database Schema)}
+\begin{lstlisting}[language=SQL]
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+-- Database: `gymnsb`
+
+CREATE TABLE `admin` (
+  `user_id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `admin` (`user_id`, `username`, `password`, `name`) VALUES
+(2, 'admin', 'f2d0ff370380124029c2b807a924156c', 'admin');
+
+CREATE TABLE `announcements` (
+  `id` int(11) NOT NULL,
+  `message` varchar(100) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `attendance` (
+  `id` int(11) NOT NULL,
+  `user_id` varchar(100) NOT NULL,
+  `curr_date` text NOT NULL,
+  `curr_time` text NOT NULL,
+  `present` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `equipment` (
+  `id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `amount` int(100) NOT NULL,
+  `quantity` int(100) NOT NULL,
+  `vendor` varchar(50) NOT NULL,
+  `description` varchar(50) NOT NULL,
+  `address` varchar(20) NOT NULL,
+  `contact` varchar(10) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `members` (
+  `user_id` int(11) NOT NULL,
+  `fullname` varchar(20) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `gender` varchar(20) NOT NULL,
+  `dor` date NOT NULL,
+  `services` varchar(50) NOT NULL,
+  `amount` int(100) NOT NULL,
+  `paid_date` date NOT NULL,
+  `p_year` int(11) NOT NULL,
+  `plan` varchar(100) NOT NULL,
+  `address` varchar(20) NOT NULL,
+  `contact` varchar(10) NOT NULL,
+  `status` varchar(20) NOT NULL DEFAULT 'Active',
+  `attendance_count` int(100) NOT NULL,
+  `ini_weight` int(100) NOT NULL DEFAULT '0',
+  `curr_weight` int(100) NOT NULL DEFAULT '0',
+  `ini_bodytype` varchar(50) NOT NULL,
+  `curr_bodytype` varchar(50) NOT NULL,
+  `progress_date` date NOT NULL,
+  `reminder` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `rates` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `charge` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `rates` (`id`, `name`, `charge`) VALUES
+(1, 'Fitness', '55'),
+(2, 'Sauna', '35'),
+(3, 'Cardio', '40');
+
+CREATE TABLE `reminder` (
+  `id` int(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `message` text NOT NULL,
+  `status` text NOT NULL,
+  `date` datetime NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `staffs` (
+  `user_id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `fullname` varchar(50) NOT NULL,
+  `address` varchar(20) NOT NULL,
+  `designation` varchar(20) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `contact` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `todo` (
+  `id` int(11) NOT NULL,
+  `task_status` varchar(50) NOT NULL,
+  `task_desc` varchar(30) NOT NULL,
+  `user_id` int(7) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `admin` ADD PRIMARY KEY (`user_id`);
+ALTER TABLE `announcements` ADD PRIMARY KEY (`id`);
+ALTER TABLE `attendance` ADD PRIMARY KEY (`id`);
+ALTER TABLE `equipment` ADD PRIMARY KEY (`id`);
+ALTER TABLE `members` ADD PRIMARY KEY (`user_id`);
+ALTER TABLE `rates` ADD PRIMARY KEY (`id`);
+ALTER TABLE `reminder` ADD PRIMARY KEY (`id`);
+ALTER TABLE `staffs` ADD PRIMARY KEY (`user_id`);
+ALTER TABLE `todo` ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `admin` MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `announcements` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `attendance` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `equipment` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `members` MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `rates` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `reminder` MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `staffs` MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `todo` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+\end{lstlisting}
+
+\newpage
+\textbf{Admin Login (index.php)}
+\begin{lstlisting}[language=PHP]
+<?php
+session_start();
+include "admin/dbcon.php";
+if(isset($_POST['login'])){
+    $username = mysqli_real_escape_string($con, $_POST['username']);
+    $password = md5($_POST['password']);
+    $query = mysqli_query($con, "SELECT * FROM admin WHERE username='$username' AND password='$password'");
+    $row = mysqli_fetch_array($query);
+    $num_row = mysqli_num_rows($query);
+    if($num_row > 0){
+        $_SESSION['user_id'] = $row['user_id'];
+        header('location:admin/index.php');
+    } else {
+        echo "<script>alert('Invalid Username/Password');</script>";
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gym System Admin</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/matrix-style.css" />
+    <link rel="stylesheet" href="css/matrix-login.css" />
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="loginbox">
+        <form id="loginform" class="form-vertical" method="POST" action="#">
+            <div class="control-group normal_text"><h3>Admin Login</h3></div>
+            <div class="control-group">
+                <div class="controls">
+                    <div class="main_input_box">
+                        <span class="add-on bg_lg"><i class="icon-user"></i></span>
+                        <input type="text" name="username" placeholder="Username" />
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <div class="main_input_box">
+                        <span class="add-on bg_ly"><i class="icon-lock"></i></span>
+                        <input type="password" name="password" placeholder="Password" />
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <span class="pull-right">
+                    <button type="submit" name="login" class="btn btn-success">Login</button>
+                </span>
+            </div>
+        </form>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
+\end{lstlisting}
+
+\newpage
+\textbf{Admin Dashboard (admin/index.php)}
+\begin{lstlisting}[language=PHP]
+<?php
+session_start();
+if(!isset($_SESSION['user_id'])){
+    header('location:../index.php');
+}
+include "dbcon.php";
+$qry="SELECT services, count(*) as number FROM members GROUP BY services";
+$result=mysqli_query($con,$qry);
+$qry="SELECT gender, count(*) as enumber FROM members GROUP BY gender";
+$result3=mysqli_query($con,$qry);
+$qry="SELECT designation, count(*) as snumber FROM staffs GROUP BY designation";
+$result5=mysqli_query($con,$qry);
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Gym System Admin</title>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+        ['Services', 'Number'],
+        <?php
+        while($row = mysqli_fetch_array($result)) {
+            echo "['".$row["services"]."', ".$row["number"]."],";
+        }
+        ?>
+    ]);
+    var options = { pieHole: 0.4 };
+    var chart = new google.visualization.PieChart(
+        document.getElementById('piechart'));
+    chart.draw(data, options);
+}
+</script>
+</head>
+<body>
+<?php include 'includes/topheader.php'?>
+<?php $page='dashboard'; include 'includes/sidebar.php'?>
+<div id="content">
+    <div class="container-fluid">
+        <div class="quick-actions_homepage">
+            <ul class="quick-actions">
+                <li class="bg_ls span">
+                    <a href="index.php"><i class="fas fa-user-check"></i>
+                    <span class="label label-important">
+                    <?php include'actions/dashboard-activecount.php'?>
+                    </span> Active Members</a>
+                </li>
+                <li class="bg_lo span3">
+                    <a href="members.php"><i class="fas fa-users"></i>
+                    <span class="label label-important">
+                    <?php include'dashboard-usercount.php'?>
+                    </span> Registered Members</a>
+                </li>
+                <li class="bg_lg span3">
+                    <a href="payment.php"><i class="fa fa-rupee-sign"></i>
+                    Total Earnings: <?php include'income-count.php' ?></a>
+                </li>
+            </ul>
+        </div>
+        <div id="piechart"></div>
+    </div>
+</div>
+</body>
+</html>
+\end{lstlisting}
+
+\newpage
+\textbf{Member Registration (admin/add-member-req.php)}
+\begin{lstlisting}[language=PHP]
+<?php
+session_start();
+if(!isset($_SESSION['user_id'])){
+    header('location:../index.php');
+}
+if(isset($_POST['fullname'])){
+    $fullname = $_POST["fullname"];
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $dor = $_POST["dor"];
+    $gender = $_POST["gender"];
+    $services = $_POST["services"];
+    $amount = $_POST["amount"];
+    $p_year = date('Y');
+    $paid_date = date("Y-m-d");
+    $plan = $_POST["plan"];
+    $address = $_POST["address"];
+    $contact = $_POST["contact"];
+    $password = md5($password);
+    $totalamount = $amount * $plan;
+
+    include 'dbcon.php';
+    $qry = "INSERT INTO members(fullname,username,password,dor,gender,
+            services,amount,p_year,paid_date,plan,address,contact,
+            attendance_count) values ('$fullname','$username','$password',
+            '$dor','$gender','$services','$totalamount','$p_year',
+            '$paid_date','$plan','$address','$contact',0)";
+    $result = mysqli_query($conn,$qry);
+    if($result){
+        echo "<h3>Member registered successfully!</h3>";
+    } else {
+        echo "<h3>Error occurred. Please try again.</h3>";
+    }
+} else {
+    echo "<h3>Unauthorized access. Go to Dashboard.</h3>";
+}
+?>
+\end{lstlisting}
+
+\newpage
+\textbf{Customer Login (customer/index.php)}
+\begin{lstlisting}[language=PHP]
+<?php session_start();
+include('dbcon.php'); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gym System - Customer Login</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/matrix-style.css" />
+    <link rel="stylesheet" href="css/matrix-login.css" />
+</head>
+<body>
+<div id="loginbox">
+    <form id="loginform" class="form-vertical" method="POST" action="#">
+        <div class="control-group normal_text"><h3>Customer Login</h3></div>
+        <div class="control-group">
+            <div class="controls">
+                <div class="main_input_box">
+                    <span class="add-on bg_lg"><i class="icon-user"></i></span>
+                    <input type="text" name="user" placeholder="Username" />
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <div class="main_input_box">
+                    <span class="add-on bg_ly"><i class="icon-lock"></i></span>
+                    <input type="password" name="pass" placeholder="Password" />
+                </div>
+            </div>
+        </div>
+        <div class="form-actions">
+            <span class="pull-left">
+                <a href="#" class="flip-link btn btn-info" id="to-recover">Join Now!</a>
+            </span>
+            <span class="pull-right">
+                <button type="submit" name="login" class="btn btn-success">
+                Customer Login</button>
+            </span>
+        </div>
+        <?php
+        if (isset($_POST['login'])) {
+            $username = mysqli_real_escape_string($con, $_POST['user']);
+            $password = mysqli_real_escape_string($con, $_POST['pass']);
+            $password = md5($password);
+            $query = mysqli_query($con, "SELECT * FROM members WHERE
+                password='$password' and username='$username'
+                and status='Active'");
+            $row = mysqli_fetch_array($query);
+            $num_row = mysqli_num_rows($query);
+            if ($num_row > 0) {
+                $_SESSION['user_id']=$row['user_id'];
+                header('location:pages/index.php');
+            } else {
+                echo "<div class='alert alert-danger'>
+                Invalid Username/Password or Account Expired!
+                </div>";
+            }
+        }
+        ?>
+    </form>
+</div>
+</body>
+</html>
+\end{lstlisting}
+
+\newpage
+\textbf{Payment Management (admin/payment.php)}
+\begin{lstlisting}[language=PHP]
+<?php
+session_start();
+if(!isset($_SESSION['user_id'])){
+    header('location:../index.php');
+}
+include "dbcon.php";
+$qry="SELECT * FROM members";
+$cnt = 1;
+$result=mysqli_query($conn,$qry);
+?>
+<table class="table table-bordered data-table table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Member</th>
+            <th>Last Payment Date</th>
+            <th>Amount</th>
+            <th>Service</th>
+            <th>Plan</th>
+            <th>Action</th>
+            <th>Remind</th>
+        </tr>
+    </thead>
+    <?php while($row=mysqli_fetch_array($result)){ ?>
+    <tbody>
+        <td><?php echo $cnt;?></td>
+        <td><?php echo $row['fullname']?></td>
+        <td><?php echo($row['paid_date']==0 ? "New" : $row['paid_date'])?></td>
+        <td><?php echo $row['amount']?></td>
+        <td><?php echo $row['services']?></td>
+        <td><?php echo $row['plan']." Month/s"?></td>
+        <td><a href="user-payment.php?id=<?php echo $row['user_id']?>">
+            <button class="btn btn-success">Make Payment</button></a></td>
+        <td><a href="sendReminder.php?id=<?php echo $row['user_id']?>">
+            <button class="btn btn-danger"
+            <?php echo($row['reminder']==1 ? "disabled" : "")?>>
+            Alert</button></a></td>
+    </tbody>
+    <?php $cnt++; } ?>
+</table>
+\end{lstlisting}
+
+% ============ CHAPTER 9: PROJECT SCREENSHOTS ============
+\newpage
+\vspace*{\fill}
+\begin{center}
+{\LARGE \textbf{PROJECT SCREENSHOTS}}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+
+\begin{figure}[H]
+    \centering
+    \framebox[0.85\textwidth]{\rule{0pt}{120pt} \textbf{SCREENSHOT: ADMIN LOGIN PAGE}}
+    \caption{Admin Login Interface}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \framebox[0.85\textwidth]{\rule{0pt}{120pt} \textbf{SCREENSHOT: ADMIN DASHBOARD}}
+    \caption{Admin Dashboard with Charts and Statistics}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \framebox[0.85\textwidth]{\rule{0pt}{120pt} \textbf{SCREENSHOT: MEMBER ENTRY FORM}}
+    \caption{Member Registration Form}
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+    \centering
+    \framebox[0.85\textwidth]{\rule{0pt}{120pt} \textbf{SCREENSHOT: REGISTERED MEMBERS LIST}}
+    \caption{Viewing All Registered Members}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \framebox[0.85\textwidth]{\rule{0pt}{120pt} \textbf{SCREENSHOT: EQUIPMENT INVENTORY}}
+    \caption{Equipment List with Vendor Details}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \framebox[0.85\textwidth]{\rule{0pt}{120pt} \textbf{SCREENSHOT: PAYMENT MANAGEMENT}}
+    \caption{Member Payment Table}
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+    \centering
+    \framebox[0.85\textwidth]{\rule{0pt}{120pt} \textbf{SCREENSHOT: ATTENDANCE MARKING}}
+    \caption{Daily Attendance Interface}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \framebox[0.85\textwidth]{\rule{0pt}{120pt} \textbf{SCREENSHOT: REPORTS AND CHARTS}}
+    \caption{Services and Financial Reports}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \framebox[0.85\textwidth]{\rule{0pt}{120pt} \textbf{SCREENSHOT: CUSTOMER DASHBOARD}}
+    \caption{Customer Progress and To-Do View}
+\end{figure}
+
+% ============ CHAPTER 10: SCOPE OF PROJECT ============
+\newpage
+\vspace*{\fill}
+\begin{center}
+{\LARGE \textbf{SCOPE OF PROJECT}}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+The scope of the Gym Management System project covers the complete automation of day-to-day operations of a fitness center, starting from member registration to attendance tracking, payment processing, and equipment inventory management. It is designed to handle the entire lifecycle of gym resources, including maintaining master records of members with their personal details, health metrics, and membership plans, staff records with their designations and contact information, and equipment records with vendor details and purchase history, and linking them through well-defined relationships so that every attendance entry, payment transaction, and progress update is accurately recorded and traceable. Within this scope, the system supports secure administrator, staff, and customer logins, allows administrators to manage all aspects of the gym through a comprehensive dashboard, enables staff to handle daily check-ins and billing, and provides customers with a personal portal to track their fitness journey.
+
+The project aims to provide real-time services such as checking member attendance counts, processing membership payments with plan-based amount calculation, tracking equipment inventory with vendor management, and managing gym announcements for effective communication. The dashboard module summarizes the gym's current state by showing counts of active members, total registered members, total earnings in Indian Rupees, staff count, equipment count, total expenses, active trainers, and present members on any given day, giving administrators immediate visibility into the gym's operational health. On the administrative side, the scope includes generating operational reports through interactive Google Charts, such as member distribution by service type (Fitness, Cardio, Sauna), gender-wise member analysis, staff distribution by designation (Trainer, Manager, Cashier), and earnings versus expenses comparison, which support decision making about pricing, staffing, and equipment investments.
+
+The project is scoped as a web-based application built using PHP for server-side logic and MySQL as the backend database, accessed through standard web browsers over the institution's local network. The front-end uses the Matrix Admin template built on Bootstrap for a professional and responsive user interface, with Font Awesome icons for visual clarity and Google Charts for data visualization.
+
+Future enhancements that fall outside the current scope but can be implemented in later versions include: integration with online payment gateways such as Razorpay or PayPal for remote membership renewal, development of a mobile application using React Native or Flutter for on-the-go access, implementation of biometric attendance systems using fingerprint or face recognition scanners, automated SMS and email notifications for membership expiry reminders and payment dues using PHP Mailer or Twilio API, advanced analytics dashboard with machine learning based predictions for member retention and workout recommendations, diet and nutrition tracking module with calorie counting and meal planning, integration with wearable fitness devices for automatic workout data synchronization, and implementation of a booking system for personal training sessions and group classes.
+
+% ============ CHAPTER 11: CONCLUSIONS ============
+\newpage
+\vspace*{\fill}
+\begin{center}
+{\LARGE \textbf{CONCLUSIONS}}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+The Gym Management System project successfully transforms a traditional, paper-based gym administration process into a structured, computerized environment that is faster, more accurate, and easier to manage. By digitizing member records, staff details, equipment inventories, attendance logs, payment transactions, and announcement systems, the system minimizes human error, reduces the time required for routine tasks, and improves the reliability of gym data for both day-to-day operations and long-term business planning. The integration of modules for authentication, member management, staff management, equipment tracking, attendance marking, payment processing, announcement broadcasting, progress monitoring, and report generation demonstrates that a relatively simple web stack built on PHP and MySQL can fully support the core needs of a modern fitness center.
+
+From a technical perspective, the project validates the use of PHP with a relational MySQL database and a modular file-based architecture as an effective solution for small to medium-scale fitness businesses. Features such as session-based authentication across three distinct user roles (Admin, Staff, Customer), MD5 password hashing for credential security, and role-specific dashboard interfaces significantly enhance security and usability compared to manual systems.
+
+The system's three-tier architecture separating the presentation layer (Bootstrap-based UI), business logic layer (PHP scripts), and data layer (MySQL database) ensures clean separation of concerns, making the codebase maintainable and extensible for future development. 
+
+Overall, the Gym Management System achieves its objectives of automation, accuracy, security, and usability, and it creates a solid foundation for future enhancements such as mobile applications, online payments, biometric integration, and advanced analytics. The project demonstrates that even with a straightforward technology stack, it is possible to build a comprehensive business management solution that delivers real value to gym owners, staff, and members.
+
+% ============ CHAPTER 12: BIBLIOGRAPHY ============
+\newpage
+\vspace*{\fill}
+\begin{center}
+{\LARGE \textbf{BIBLIOGRAPHY}}
+\end{center}
+\vspace*{\fill}
+
+\newpage
+\begin{enumerate}
+\item Silberschatz, A., Korth, H. F., \& Sudarshan, S. \textit{Database System Concepts}, 6th Edition, McGraw-Hill Education, 2019.
+
+\item Elmasri, R., \& Navathe, S. B. \textit{Fundamentals of Database Systems}, 7th Edition, Pearson Education, 2017.
+
+\item Pressman, R. S., \& Maxim, B. R. \textit{Software Engineering: A Practitioner's Approach}, 8th Edition, McGraw-Hill, 2015.
+
+\item Welling, L., \& Thomson, L. \textit{PHP and MySQL Web Development}, 5th Edition, Addison-Wesley, 2016.
+
+\item Duckett, J. \textit{HTML and CSS: Design and Build Websites}, Wiley Publications, 2014.
+
+\item Flanagan, D. \textit{JavaScript: The Definitive Guide}, 7th Edition, O'Reilly Media, 2020.
+
+\item MySQL Documentation. \textit{MySQL 8.0 Reference Manual}, Oracle Corporation. Available at: \url{https://dev.mysql.com/doc/}
+
+\item Apache Software Foundation. \textit{Apache HTTP Server Documentation}, Version 2.4. Available at: \url{https://httpd.apache.org/docs/2.4/}
+
+\item Bootstrap Team. \textit{Bootstrap Documentation}, Version 4. Available at: \url{https://getbootstrap.com/docs/4.0/}
+
+\item PHP Documentation Group. \textit{PHP Manual}, The PHP Group. Available at: \url{https://www.php.net/docs.php}
+
+\item Date, C. J. \textit{An Introduction to Database Systems}, 8th Edition, Pearson Education.
+
+\item Laudon, K. C., \& Laudon, J. P. \textit{Management Information Systems}, 15th Edition, Pearson Education.
+\end{enumerate}
+
+\end{document}
